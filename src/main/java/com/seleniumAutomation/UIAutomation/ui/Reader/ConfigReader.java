@@ -1,4 +1,4 @@
-package com.seleniumAutomation.UIAutomation.Reader;
+package com.seleniumAutomation.UIAutomation.ui.Reader;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
