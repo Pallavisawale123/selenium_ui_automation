@@ -16,19 +16,8 @@ class UiAutomationApplicationTests {
 
 	@BeforeMethod
 	void contextLoads() {
-		String ss = configReader.getProperty("src/test/resources/application.properties","base.url");
-		System.out.println("********************"+ss);
+		String fileName = configReader.getProperty("src/test/resources/application.properties","base.url");
+		System.out.println(fileName + "Demo test");
 	}
-
-	@Test
-	void testtt(){
-		log.info("%%%%%%%%%%%");
-	}
-
-	@AfterTest
-	void testuu(){
-		log.info("after test");
-	}
-
 
 }
