@@ -16,7 +16,6 @@ import java.io.IOException;
  */
 @SpringBootTest(classes = UiAutomationApplication.class)
 @Slf4j
-
 public class TestDataProvider {
 
     /**
