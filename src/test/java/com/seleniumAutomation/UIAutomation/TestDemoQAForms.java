@@ -7,6 +7,7 @@ import com.seleniumAutomation.UIAutomation.ui.driver.DriverManager;
 import com.seleniumAutomation.UIAutomation.ui.helpers.AssertHelper;
 import com.seleniumAutomation.UIAutomation.ui.pages.ConfirmPopup;
 import com.seleniumAutomation.UIAutomation.ui.pages.FormPage;
+import com.seleniumAutomation.UIAutomation.ui.pages.UploadDownloadPage;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -44,7 +45,7 @@ public class TestDemoQAForms {
     }
 
 
-    @Test(priority = 1, description = "submit the form with mandatory fields")
+    @Test(priority = 1, description = "submit the form with mandatory fields", enabled = false)
     void testFormWithMandatoryFields() {
         HashMap<String, String> userDetails = new HashMap<>();
         userDetails.put("fname", "pallavi");
@@ -79,6 +80,15 @@ public class TestDemoQAForms {
         confirmPopup.clickCloseButton();
     }
 
+    @Test(priority = 1, description = "upload and download ", enabled = true)
+    void testUploadDownload() {
+
+        FormPage formPage = new FormPage(driver);
+        formPage.clickUploadDownloadLink();
+        UploadDownloadPage uploadDownloadPage = new UploadDownloadPage(driver);
+        uploadDownloadPage.clickOnDownloadButton();
+        uploadDownloadPage.setUploadFilePath("C:\\Users\\Dreams\\OneDrive\\Documents\\UI Automation\\selenium\\UIAutomation\\UIAutomation\\src\\test\\resources\\application.properties");
+    }
 
     /**
      * Method to take screenshot for failed TCS

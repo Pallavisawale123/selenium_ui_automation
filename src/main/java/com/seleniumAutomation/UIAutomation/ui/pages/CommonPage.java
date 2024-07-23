@@ -30,16 +30,16 @@ public class CommonPage extends BasePage {
     @FindBy(how = How.XPATH, using = "//*[contains(text(),'Practice Form')]")
     WebElement practiceFormLink;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(), \"Upload and Download\")]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(), \"Upload and Download\")]")
     WebElement uploadDownloadLink;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(), \"Browser Windows\")]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(), \"Browser Windows\")]")
     WebElement browserWindowsLink;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(), \"Frames\")]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(), \"Frames\")]")
     WebElement framesLink;
 
-    @FindBy(how = How.XPATH, using = "//span[contains(text(), \"Alerts\")]")
+    @FindBy(how = How.XPATH, using = "//*[contains(text(), \"Alerts\")]")
     WebElement alertsLink;
 
     public void clickFormsLink() {
@@ -50,8 +50,7 @@ public class CommonPage extends BasePage {
     public void clickPracticeFormsLink() {
         try {
             practiceFormLink.click();
-        }
-        catch (ElementNotInteractableException exception) {
+        } catch (ElementNotInteractableException exception) {
             log.error("got exception: {}", exception.getMessage());
             formsLink.click();
             practiceFormLink.click();
@@ -59,25 +58,21 @@ public class CommonPage extends BasePage {
 
     }
 
-    public void clickUploadDownloadLink(){
+    public void clickUploadDownloadLink() {
         uploadDownloadLink.click();
     }
 
-    public void clickOnBrowserWindowsLink(){
+    public void clickOnBrowserWindowsLink() {
         browserWindowsLink.click();
     }
 
-    public void clickOnFramesLink(){
+    public void clickOnFramesLink() {
         framesLink.click();
     }
 
     public void clickOnAlertsLink() {
         alertsLink.click();
     }
-
-
-
-
 
 
 }
