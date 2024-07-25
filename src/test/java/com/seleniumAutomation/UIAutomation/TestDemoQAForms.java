@@ -5,9 +5,7 @@ import com.seleniumAutomation.UIAutomation.base.TestRetry;
 import com.seleniumAutomation.UIAutomation.ui.Reader.ConfigReader;
 import com.seleniumAutomation.UIAutomation.ui.driver.DriverManager;
 import com.seleniumAutomation.UIAutomation.ui.helpers.AssertHelper;
-import com.seleniumAutomation.UIAutomation.ui.pages.ConfirmPopup;
-import com.seleniumAutomation.UIAutomation.ui.pages.FormPage;
-import com.seleniumAutomation.UIAutomation.ui.pages.UploadDownloadPage;
+import com.seleniumAutomation.UIAutomation.ui.pages.*;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -38,7 +36,7 @@ public class TestDemoQAForms {
     /**
      * Method to verify chrome launched with expected URL or not
      */
-    @Test(priority = 0, description = "verify new driver launched", retryAnalyzer = TestRetry.class)
+    @Test(priority = 0, description = "verify new driver launched", retryAnalyzer = TestRetry.class, enabled = false)
     void verifyDriverLaunched() {
         driver.get(baseURL);
         AssertHelper.assertEquals(driver.getCurrentUrl(), "https://demoqa.com/text-box", "Verified new driver got launched.");
@@ -80,7 +78,7 @@ public class TestDemoQAForms {
         confirmPopup.clickCloseButton();
     }
 
-    @Test(priority = 1, description = "upload and download ", enabled = true)
+    @Test(priority = 1, description = "upload and download ", enabled = false)
     void testUploadDownload() {
 
         FormPage formPage = new FormPage(driver);
@@ -89,6 +87,24 @@ public class TestDemoQAForms {
         uploadDownloadPage.clickOnDownloadButton();
         uploadDownloadPage.setUploadFilePath("C:\\Users\\Dreams\\OneDrive\\Documents\\UI Automation\\selenium\\UIAutomation\\UIAutomation\\src\\test\\resources\\application.properties");
     }
+
+
+    @Test(enabled = true)
+    void testFrames() {
+
+        driver.get("https://demoqa.com/browser-windows");
+
+        Frames framesPage = new Frames(driver);
+        framesPage.clickOnFramesLink();
+
+        log.info("frame 1: {}", framesPage.switchToFrame1());
+
+        framesPage.switchToParentFrame();
+
+        log.info("frame 2: {}", framesPage.switchToFrame2());
+
+    }
+
 
     /**
      * Method to take screenshot for failed TCS

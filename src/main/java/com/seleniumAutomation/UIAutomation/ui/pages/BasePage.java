@@ -36,6 +36,14 @@ public class BasePage {
         actions.moveToElement(element).click().perform();
     }
 
+    public void switchToFrame(WebElement frameLocator) {
+        driver.switchTo().frame(frameLocator);
+    }
+
+    public void switchToParentFrame() {
+        driver.switchTo().defaultContent();
+    }
+
 }
 
 
